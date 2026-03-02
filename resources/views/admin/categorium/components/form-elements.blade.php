@@ -35,4 +35,17 @@
     </div>
 </div>
 
+<!-- agreguemos una imagencita para las vistas de las categorias -->
+<div class="form-group row align-items-center">
+    <label class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">
+        <!-- Imagen de la categoría -->
+    </label>
 
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <media-library-collection
+            v-model="form.imagen"
+            :collection="'imagen'"
+            :multiple="false"
+        />
+    </div>
+</div>

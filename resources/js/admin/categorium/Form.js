@@ -9,7 +9,7 @@ Vue.component('categorium-form', {
                 slug:  '' ,
                 descripcion:  '' ,
                 estado:  false ,
-                
+                imagen: []
             }
         }
     }
