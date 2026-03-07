@@ -20083,3 +20083,67 @@ div.trumbowyg-dropdown-table table td.active {
     font-size: 0.875rem !important;
   }
 }
+
+
+/* =========================
+   CATEGORIAS HOME
+========================= */
+
+.categorias-container{
+    padding-top:40px;
+    padding-bottom:40px;
+}
+
+.categoria-card{
+    border:none;
+    border-radius:16px;
+    overflow:hidden;
+    transition:all .25s ease;
+    background:#ffffff;
+}
+
+.categoria-card img{
+    height:200px;
+    object-fit:cover;
+}
+
+.categoria-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 15px 35px rgba(0,0,0,0.15);
+}
+
+.categoria-card .card-body{
+    padding:20px;
+}
+
+.categoria-card .card-title{
+    font-weight:600;
+    font-size:18px;
+}
+
+.categoria-card .card-text{
+    font-size:14px;
+    color:#6c757d;
+}
+
+.categoria-card .btn{
+    border-radius:8px;
+}
+
+/* NAVBAR */
+.navbar-brand img{
+    border-radius:8px;
+}
+
+.navbar{
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
+.navbar .form-control{
+    border-radius:8px;
+}
+
+.navbar .btn{
+    border-radius:8px;
+}
