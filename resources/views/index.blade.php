@@ -119,37 +119,29 @@
 
     <script>
 
+        /* aqui vamos a agregar la funcion para que el buscador funcione letra por letra */
         document.getElementById('busqueda').addEventListener('keyup', function(){
 
             let query = this.value;
-
             if(query.length < 2){
                 document.getElementById('resultados').innerHTML = '';
                 return;
             }
-
             fetch(`/buscar-senas?q=${query}`)
-
             .then(response => response.json())
-
+            
             .then(data => {
-
                 let html = '';
-
                 data.forEach(item => {
-
                     html += `
                     <div class="search-item">
                     ${item.nombre}
                     </div>
                     `;
-
                 });
-
                 document.getElementById('resultados').innerHTML = html;
-
+                /* por el momento solo cargamos el ajax, no hay contenido multimedia aun */
             });
-
         });
 
     </script>
