@@ -20090,8 +20090,9 @@ div.trumbowyg-dropdown-table table td.active {
 ========================= */
 
 .categorias-container{
-    padding-top:40px;
+/*     padding-top:10px; */
     padding-bottom:40px;
+    margin-top:0px;
 }
 
 .categoria-card{
@@ -20146,4 +20147,99 @@ div.trumbowyg-dropdown-table table td.active {
 
 .navbar .btn{
     border-radius:8px;
+}
+
+
+
+/* =========================
+   HERO BUSQUEDA
+========================= */
+
+.hero-busqueda{
+
+  width:100%;
+  min-height:360px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:50px 20px;
+
+  color:white;
+  text-align:center;
+
+  background:
+  linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+  url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80');
+
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+
+}
+
+
+/* TITULO */
+
+.hero-title{
+
+  font-size:48px;
+  font-weight:700;
+  margin-bottom:15px;
+  letter-spacing:.5px;
+
+}
+
+
+/* SUBTITULO */
+
+.hero-subtitle{
+
+  font-size:20px;
+  opacity:.9;
+  margin-bottom:35px;
+
+}
+
+
+/* BUSCADOR */
+
+.hero-search{
+
+  max-width:650px;
+  margin:auto;
+
+}
+
+
+/* INPUT */
+
+.hero-search input{
+
+  border-radius:12px 0 0 12px;
+  padding:14px;
+  border:none;
+
+}
+
+
+/* BOTON */
+
+.hero-search button{
+
+  border-radius:0 12px 12px 0;
+  padding-left:35px;
+  padding-right:35px;
+  font-weight:500;
+
+}
+
+
+/* SOMBRA DEL BUSCADOR */
+
+.hero-search .input-group{
+
+  box-shadow:0 10px 30px rgba(0,0,0,.3);
+
 }
