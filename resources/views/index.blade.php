@@ -26,6 +26,7 @@
 
                     <input type="text"
                     class="form-control"
+                    id="busqueda"
                     placeholder="Ejemplo: hola, gracias, agua...">
 
                     <button class="btn btn-primary">
@@ -43,6 +44,8 @@
     <div class="app-body">
 
         <main class="main">
+
+            <div id="resultados" class="search-results"></div>
                 
             <div class="container categorias-container">
 
@@ -113,4 +116,43 @@
 
 @section('bottom-scripts')
     @parent
+
+    <script>
+
+        document.getElementById('busqueda').addEventListener('keyup', function(){
+
+            let query = this.value;
+
+            if(query.length < 2){
+                document.getElementById('resultados').innerHTML = '';
+                return;
+            }
+
+            fetch(`/buscar-senas?q=${query}`)
+
+            .then(response => response.json())
+
+            .then(data => {
+
+                let html = '';
+
+                data.forEach(item => {
+
+                    html += `
+                    <div class="search-item">
+                    ${item.nombre}
+                    </div>
+                    `;
+
+                });
+
+                document.getElementById('resultados').innerHTML = html;
+
+            });
+
+        });
+
+    </script>
+
 @endsection
+
