@@ -20,7 +20,7 @@
                 Busca cualquier palabra y mira cómo se dice en lenguaje de señas
             </p>
 
-            <form class="hero-search">
+            <form class="hero-search" onsubmit="return false;">
 
                 <div class="input-group input-group-lg">
 
@@ -141,6 +141,57 @@
                 });
                 document.getElementById('resultados').innerHTML = html;
                 /* por el momento solo cargamos el ajax, no hay contenido multimedia aun */
+            });
+        });
+
+        /* Vamos a intentar mostrar un video primero */
+        document.addEventListener("DOMContentLoaded", function(){
+            let input = document.getElementById('busqueda');
+            let resultados = document.getElementById('resultados');
+
+            input.addEventListener('keyup', function(){
+
+                let query = this.value;
+                if(query.length < 2){
+                    resultados.innerHTML = '';
+                    return;
+                }
+                fetch(`/buscar-senas?q=${query}`)
+                .then(response => response.json())
+                .then(data => {
+
+                    let html = '';
+                    if(data.length === 0){
+                        html = `<div class="search-item">No se encontraron resultados</div>`;
+                    }else{
+                        data.forEach(item => {
+
+                            /* html += `
+                            <div class="search-item">
+                                ${item.nombre}
+                            </div>
+                            `; */
+
+                            html += `
+                                <a href="/sena/${item.slug}" class="search-card">
+
+                                    <div class="search-card-body">
+
+                                        <h6 class="search-title">
+                                        ${item.nombre}
+                                        </h6>
+
+                                        <p class="search-category">
+                                        Categoria: ${item.categoria ? item.categoria.nombre : 'General'}
+                                        </p>
+
+                                    </div>
+
+                                </a>`;
+                        });
+                    }
+                    resultados.innerHTML = html;
+                });
             });
         });
 

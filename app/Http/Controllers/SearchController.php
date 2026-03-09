@@ -12,7 +12,13 @@ class SearchController extends Controller
 
         $query = $request->q;
 
-        $palabras = Palabra::where('nombre','LIKE',"%{$query}%")
+        /* $palabras = Palabra::where('nombre','LIKE',"%{$query}%")
+        ->where('estado',1)
+        ->limit(10)
+        ->get(); */
+
+        $palabras = \App\Models\Palabra::with('categoria')
+        ->where('nombre','LIKE',"%{$query}%")
         ->where('estado',1)
         ->limit(10)
         ->get();
@@ -21,3 +27,4 @@ class SearchController extends Controller
 
     }
 }
+

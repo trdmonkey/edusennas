@@ -64,4 +64,14 @@ class MainController extends Controller
     {
         //
     }
+
+    public function sena($slug)
+    {
+        $palabra = \App\Models\Palabra::where('slug',$slug)
+        ->where('estado',1)
+        ->firstOrFail();
+
+        return view('sena', compact('palabra'));
+    }
+
 }

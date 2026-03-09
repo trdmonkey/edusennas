@@ -17,6 +17,7 @@ use App\Http\Controllers\SearchController;
 
 Route::get('/', [MainController::class, 'index']);
 Route::get('/buscar-senas', [SearchController::class, 'buscar']);
+Route::get('/sena/{slug}', [MainController::class, 'sena']);
 Route::get('/{id}', [MainController::class, 'categoria']);
 
 /* Auto-generated admin routes */
