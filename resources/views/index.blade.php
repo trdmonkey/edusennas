@@ -45,7 +45,10 @@
 
         <main class="main">
 
-            <div id="resultados" class="search-results"></div>
+            <!-- Este es el div que muestra los resultados de las coincidencias del buscador - id:resultados -->
+            <div class="search-wrapper">
+                <div id="resultados" class="search-results"></div>
+            </div>
                 
             <div class="container categorias-container">
 
@@ -120,29 +123,6 @@
     <script>
 
         /* aqui vamos a agregar la funcion para que el buscador funcione letra por letra */
-        document.getElementById('busqueda').addEventListener('keyup', function(){
-
-            let query = this.value;
-            if(query.length < 2){
-                document.getElementById('resultados').innerHTML = '';
-                return;
-            }
-            fetch(`/buscar-senas?q=${query}`)
-            .then(response => response.json())
-            
-            .then(data => {
-                let html = '';
-                data.forEach(item => {
-                    html += `
-                    <div class="search-item">
-                    ${item.nombre}
-                    </div>
-                    `;
-                });
-                document.getElementById('resultados').innerHTML = html;
-                /* por el momento solo cargamos el ajax, no hay contenido multimedia aun */
-            });
-        });
 
         /* Vamos a intentar mostrar un video primero */
         document.addEventListener("DOMContentLoaded", function(){
@@ -166,33 +146,53 @@
                     }else{
                         data.forEach(item => {
 
-                            /* html += `
-                            <div class="search-item">
-                                ${item.nombre}
-                            </div>
-                            `; */
-
                             html += `
                                 <a href="/sena/${item.slug}" class="search-card">
 
-                                    <div class="search-card-body">
+                                <div class="search-video">
 
-                                        <h6 class="search-title">
+                                    <video muted loop>
+                                        <source src="${item.video}" type="video/mp4">
+                                    </video>
+
+                                </div>
+
+                                <div class="search-info">
+
+                                    <h6 class="search-title">
                                         ${item.nombre}
-                                        </h6>
+                                    </h6>
 
-                                        <p class="search-category">
-                                        Categoria: ${item.categoria ? item.categoria.nombre : 'General'}
-                                        </p>
+                                    <p class="search-category">
+                                        ${item.categoria}
+                                    </p>
 
-                                    </div>
+                                </div>
 
-                                </a>`;
+                                </a>
+                            `;
+
                         });
                     }
                     resultados.innerHTML = html;
                 });
             });
+        });
+
+        /* Esta pequeña función es para reproducir el video cuando se hace hover al card o a la imagen */
+        
+        /* aqui ponemos a rodar el video (SIN AUDIO) y de forma automatica al poner el cursor sobre la imagen */
+        document.addEventListener("mouseover", function(e){
+            if(e.target.tagName === "VIDEO"){
+                e.target.play();
+            }
+        });
+
+        /* Esta pausa el video automatico despues de quitar el cursor del video, y tambien el onBlur */
+        document.addEventListener("mouseout", function(e){
+            if(e.target.tagName === "VIDEO"){
+                e.target.pause();
+            }
         });
 
     </script>
