@@ -149,25 +149,29 @@
                             html += `
                                 <a href="/sena/${item.slug}" class="search-card">
 
-                                <div class="search-video">
+                                    <div class="search-video">
 
-                                    <video muted loop preload="metadata" >
-                                        <source src="${item.video}" type="video/mp4">
-                                    </video>
+                                        <video muted loop preload="metadata">
+                                            <source src="${item.video}" type="video/mp4">
+                                        </video>
 
-                                </div>
+                                        </div>
 
-                                <div class="search-info">
+                                        <div class="search-info">
 
-                                    <h6 class="search-title">
-                                        ${item.nombre}
-                                    </h6>
+                                            <div class="search-top">
 
-                                    <p class="search-category">
-                                        ${item.categoria}
-                                    </p>
+                                            <span class="search-title">
+                                                ${item.nombre}
+                                            </span>
 
-                                </div>
+                                            <span class="search-badge">
+                                                ${item.categoria}
+                                            </span>
+
+                                        </div>
+
+                                    </div>
 
                                 </a>
                             `;
