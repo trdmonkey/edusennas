@@ -14,8 +14,9 @@
 
 	@include('layout.partials.main-styles')
 
-    <!-- @yield('styles') -->
+    @yield('styles')
 
+    <!-- Estilos para el index: header, hero, main y footer -->
     <link rel="stylesheet" href="/css/fixes.css">
 
 </head>

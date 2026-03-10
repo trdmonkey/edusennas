@@ -30,9 +30,14 @@
                     placeholder="Ejemplo: hola, gracias, agua...">
 
                     <button class="btn btn-primary">
-                    Buscar
+                        Buscar
                     </button>
 
+                </div>
+
+                <!-- Este es el div que muestra los resultados de las coincidencias del buscador - id:resultados -->
+                <div class="search-wrapper">
+                    <div id="resultados" class="search-results"></div>
                 </div>
 
             </form>
@@ -44,11 +49,6 @@
     <div class="app-body">
 
         <main class="main">
-
-            <!-- Este es el div que muestra los resultados de las coincidencias del buscador - id:resultados -->
-            <div class="search-wrapper">
-                <div id="resultados" class="search-results"></div>
-            </div>
                 
             <div class="container categorias-container">
 
@@ -151,7 +151,7 @@
 
                                 <div class="search-video">
 
-                                    <video muted loop>
+                                    <video muted loop preload="metadata" >
                                         <source src="${item.video}" type="video/mp4">
                                     </video>
 
