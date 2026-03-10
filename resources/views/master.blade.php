@@ -14,7 +14,9 @@
 
 	@include('layout.partials.main-styles')
 
-    @yield('styles')
+    <!-- @yield('styles') -->
+
+    <link rel="stylesheet" href="/css/fixes.css">
 
 </head>
 

@@ -93,7 +93,8 @@
         <ul class="navbar-nav">
 
             <li class="nav-item">
-                <a class="nav-link" href="#">Login</a>
+                <!-- provisional porque al final vamos a subir a un hosting -->
+                <a class="nav-link" href="http://127.0.0.1:8000/admin/login">Login</a>
             </li>
 
         </ul>
