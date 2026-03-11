@@ -145,23 +145,25 @@
 
 /* CONTENEDOR RESULTADOS */
 .search-results{
-    /* bueno aqui vamos a probar estilos para la caja de resultados */
-    position:absolute;
-    left:50%;
-    transform:translateX(-50%);
-    width:420px;
-    background:white;
-    border-radius:14px;
-    margin-top:8px;
-    box-shadow:0 25px 60px rgba(0,0,0,0.25);
-    z-index:2000;
-    overflow:hidden;
+position:absolute;
+width:100%;
+background:white;
+border-radius:16px;
+box-shadow:0 25px 60px rgba(0,0,0,0.3);
+margin-top:12px;
+padding:18px;
+z-index:3000;
 
-    max-height:400px;
-    overflow-y:auto;
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+gap:16px;
 
-    animation: fadeSearch .2s ease;
+max-height:420px;
+overflow-y:auto;
 }
+
+/* ================== ========== ======= ================ ======== ======== =========== ========== ========== ========== ========= ============ ======== */
+/* ======= =========== ========== ========= =========== =========== ======== ==== ============ ========= ========== ======== ===== ========== ========== */
 
 .search-wrapper {
     position: absolute;
@@ -174,15 +176,15 @@
 
 /* ITEM */
 .search-card{
-    display:flex;
-    align-items:center;
-    gap:16px;
-    padding:14px 18px;
-    text-decoration:none;
-    color:#333;
-    border-bottom:1px solid #f3f3f3;
-    transition:all 0.2s ease;
-    background:white;
+display:flex;
+flex-direction:column;
+text-decoration:none;
+color:#333;
+background:white;
+border-radius:12px;
+overflow:hidden;
+transition:all .25s ease;
+box-shadow:0 4px 10px rgba(0,0,0,0.08);
 }
 
 .search-card:last-child{
@@ -190,53 +192,55 @@
 }
 
 .search-card:hover{
-    background:#f6f9ff;
-    transform:scale(1.02);
-    box-shadow:0 8px 20px rgba(0,0,0,0.08);
-    text-decoration: none;
+transform:translateY(-4px);
+box-shadow:0 12px 25px rgba(0,0,0,0.18);
 }
 
 
 /* VIDEO */
 .search-video{
-    position: relative;
-    width:90px;
-    height:120px;
-    border-radius:10px;
-    overflow:hidden;
-    flex-shrink:0;
-    background:#fff;
-    border-radius: 10px;
+position:relative;
+width:100%;
+height:auto;
+background:black;
+overflow:hidden;
 }
 
 .search-video video{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    padding: 2px;
-    border: 3px solid silver;
-    border-radius: 12px;
+width:100%;
+height:100%;
+object-fit:cover;
 }
 
 /* PLAY ICON */
-.search-video::after{
-    content:'\25B6'; /* Entidades CSS, estas van en CHAR */
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%, -50%);
-    font-size:24px;
-    color:white;
-    opacity:0.5;
-    text-decoration: none;
+.play-icon{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%, -50%);
+font-size:22px;
+color:white;
+background:rgba(0,0,0,0.6);
+width:36px;
+height:36px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+opacity:0;
+transition:all .2s ease;
+}
+
+.search-card:hover .play-icon{
+opacity:1;
 }
 
 /* TEXTO */
 .search-info{
-    display:flex;
-    flex-direction:column;
-    justify-content: center;
-    gap: 4px;
+padding:10px;
+display:flex;
+flex-direction:column;
+gap:4px;
 }
 
 .search-top{
@@ -246,18 +250,17 @@
 }
 
 .search-title{
-    font-size:16px;
-    font-weight:600;
-    margin:0;
+font-size:14px;
+font-weight:600;
 }
 
-.search-badge {
-    font-size: 12px;
-    background: #eef3ff;
-    color: #0d6efd;
-    padding: 6px 10px;
-    border-radius: 20px;
-    width: fit-content;
+.search-badge{
+font-size:11px;
+background:#eef3ff;
+color:#0d6efd;
+padding:3px 8px;
+border-radius:12px;
+width:fit-content;
 }
 
 .search-category{
