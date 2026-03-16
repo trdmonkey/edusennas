@@ -146,33 +146,29 @@
                     }else{
                         data.forEach(item => {
 
-html += `
-<a href="/sena/${item.slug}" class="search-card">
+                            html += `
+                                <a href="/sena/${item.slug}" class="search-card">
 
-<div class="search-video">
+                                    <div class="search-video">
+                                        <video muted loop preload="metadata">
+                                            <source src="${item.video}" type="video/mp4">
+                                        </video>
 
-<video muted loop preload="metadata">
-<source src="${item.video}" type="video/mp4">
-</video>
+                                        <div class="play-icon">▶</div>
+                                    </div>
 
-<div class="play-icon">▶</div>
+                                    <div class="search-info">
+                                        <span class="search-title">
+                                            ${item.nombre}
+                                        </span>
 
-</div>
+                                        <span class="search-badge">
+                                           <img src="/images/video-svgrepo-com.svg" class="icon-categoria">${item.categoria}
+                                        </span>
+                                    </div>
 
-<div class="search-info">
-
-<span class="search-title">
-${item.nombre}
-</span>
-
-<span class="search-badge">
-${item.categoria}
-</span>
-
-</div>
-
-</a>
-`;
+                                </a>
+                            `;
 
                         });
                     }
