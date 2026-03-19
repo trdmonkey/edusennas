@@ -199,6 +199,12 @@
             }
         });
 
+        document.addEventListener("DOMContentLoaded", function(){
+            let input = document.getElementById('busqueda');
+
+            input.focus(); // enfoque automático
+        });
+
     </script>
 
 @endsection

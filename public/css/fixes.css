@@ -316,7 +316,7 @@ font-weight:600;
 /* .hero-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.1);
+    background: rgba(0,0,0,0.55);
     z-index: 2;
 } */
 
@@ -395,5 +395,5 @@ font-weight:600;
 }
 
 .hero-video {
-    filter: brightness(0.9) contrast(1.1);
+    filter: brightness(0.85) contrast(1.1);
 }
