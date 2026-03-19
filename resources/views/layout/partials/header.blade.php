@@ -6,7 +6,7 @@
 
     <!-- LOGO -->
     <a class="navbar-brand d-flex align-items-center" href="/">
-        <img src="{{ asset('images/logo_senas_bg_transparent.png') }}"
+        <img src="{{ asset('images/Logo__horizontal.png') }}"
              alt="logo"
              style="height:40px;margin-right:10px;">
         <!-- <span class="fw-bold">Señas Que Unen</span> -->

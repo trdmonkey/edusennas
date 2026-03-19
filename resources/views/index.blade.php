@@ -10,7 +10,15 @@
 
     <section class="hero-busqueda">
 
-        <div class="container text-center">
+        <!-- VIDEO DE FONDO -->
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="{{ asset('images/logo_animado__2.mp4') }}" type="video/mp4">
+        </video>
+
+        <!-- CONTENIDO ENCIMA -->
+        <div class="hero-overlay"></div>
+
+        <div class="container text-center hero-content">
 
             <h1 class="hero-title">
                 Aprende Lenguaje de Señas Fácilmente
@@ -35,7 +43,6 @@
 
                 </div>
 
-                <!-- Este es el div que muestra los resultados de las coincidencias del buscador - id:resultados -->
                 <div class="search-wrapper">
                     <div id="resultados" class="search-results"></div>
                 </div>
@@ -65,7 +72,7 @@
                                     class="card-img-top"
                                     alt="{{ $categoria->nombre }}">
                             @else
-                                <img src="{{ asset('images/senas_logo__2.png') }}"
+                                <img src="{{ asset('images/Logo__vertical.png') }}"
                                     class="card-img-top"
                                     alt="Sin imagen">
                             @endif
