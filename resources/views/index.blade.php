@@ -8,50 +8,49 @@
 
     <!-- HERO BUSQUEDA -->
 
-    <section class="hero-busqueda">
+<section class="hero-busqueda">
 
-        <!-- VIDEO DE FONDO -->
-        <video autoplay muted loop playsinline class="hero-video">
-            <source src="{{ asset('images/logo_animado__2.mp4') }}" type="video/mp4">
-        </video>
+    <video autoplay muted loop playsinline class="hero-video">
+        <source src="{{ asset('images/logo_animado__2.mp4') }}" type="video/mp4">
+    </video>
 
-        <!-- CONTENIDO ENCIMA -->
-        <div class="hero-overlay"></div>
+    <div class="hero-overlay"></div>
 
-        <div class="container text-center hero-content">
+<!--     <div class="container text-center hero-content">
 
-            <h1 class="hero-title">
-                Aprende Lenguaje de Señas Fácilmente
-            </h1>
+        <h1 class="hero-title">
+            Aprende Lenguaje de Señas Fácilmente
+        </h1>
 
-            <p class="hero-subtitle">
-                Busca cualquier palabra y mira cómo se dice en lenguaje de señas
-            </p>
+        <p class="hero-subtitle">
+            Busca cualquier palabra y mira cómo se dice en lenguaje de señas
+        </p>
 
-            <form class="hero-search" onsubmit="return false;">
+    </div> -->
 
-                <div class="input-group input-group-lg">
+</section>
 
-                    <input type="text"
-                    class="form-control"
-                    id="busqueda"
-                    placeholder="Ejemplo: hola, gracias, agua...">
+<section class="search-section">
+    <div class="container">
 
-                    <button class="btn btn-primary">
-                        Buscar
-                    </button>
+        <form class="search-box" onsubmit="return false;">
 
-                </div>
+            <input type="text"
+                id="busqueda"
+                placeholder="Buscar señas...">
 
-                <div class="search-wrapper">
-                    <div id="resultados" class="search-results"></div>
-                </div>
+            <button>
+                🔍
+            </button>
 
-            </form>
+            <div class="search-wrapper">
+                <div id="resultados" class="search-results"></div>
+            </div>
 
-        </div>
+        </form>
 
-    </section>
+    </div>
+</section>
 
     <div class="app-body">
 
