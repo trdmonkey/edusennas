@@ -126,86 +126,91 @@
 @section('bottom-scripts')
     @parent
 
-    <script>
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
 
-        /* aqui vamos a agregar la funcion para que el buscador funcione letra por letra */
+        let input = document.getElementById('busqueda');
+        let resultados = document.getElementById('resultados');
 
-        /* Vamos a intentar mostrar un video primero */
-        document.addEventListener("DOMContentLoaded", function(){
-            let input = document.getElementById('busqueda');
-            let resultados = document.getElementById('resultados');
+        setTimeout(() => {
+            input.focus();
+        }, 200);
 
-            input.addEventListener('keyup', function(){
+        input.addEventListener('keyup', function(){
 
-                let query = this.value;
-                if(query.length < 2){
-                    resultados.innerHTML = '';
+            let query = this.value.trim();
+
+            if(query.length < 2){
+                resultados.innerHTML = '';
+                resultados.style.display = "none";
+                return;
+            }
+
+            fetch(`/buscar-senas?q=${query}`)
+            .then(response => response.json())
+            .then(data => {
+
+                let html = '';
+
+                if(data.length === 0){
+                    resultados.style.display = "none";
                     return;
                 }
-                fetch(`/buscar-senas?q=${query}`)
-                .then(response => response.json())
-                .then(data => {
 
-                    let html = '';
-                    if(data.length === 0){
-                        html = `<div class="search-item">No se encontraron resultados</div>`;
-                    }else{
-                        data.forEach(item => {
+                data.forEach(item => {
+                    html += `
+                        <a href="/sena/${item.slug}" class="search-card">
 
-                            html += `
-                                <a href="/sena/${item.slug}" class="search-card">
+                            <div class="search-video">
+                                <video muted loop preload="metadata">
+                                    <source src="${item.video}" type="video/mp4">
+                                </video>
 
-                                    <div class="search-video">
-                                        <video muted loop preload="metadata">
-                                            <source src="${item.video}" type="video/mp4">
-                                        </video>
+                                <div class="play-icon">▶</div>
+                            </div>
 
-                                        <div class="play-icon">▶</div>
-                                    </div>
+                            <div class="search-info">
+                                <span class="search-title">
+                                    ${item.nombre}
+                                </span>
 
-                                    <div class="search-info">
-                                        <span class="search-title">
-                                            ${item.nombre}
-                                        </span>
+                                <span class="search-badge">
+                                    <img src="/images/video-svgrepo-com.svg" class="icon-categoria">
+                                    ${item.categoria}
+                                </span>
+                            </div>
 
-                                        <span class="search-badge">
-                                           <img src="/images/video-svgrepo-com.svg" class="icon-categoria">${item.categoria}
-                                        </span>
-                                    </div>
-
-                                </a>
-                            `;
-
-                        });
-                    }
-                    resultados.innerHTML = html;
+                        </a>
+                    `;
                 });
+
+                resultados.innerHTML = html;
+                resultados.style.display = "flex"; // importante para layout horizontal
             });
         });
 
-        /* Esta pequeña función es para reproducir el video cuando se hace hover al card o a la imagen */
-        
-        /* aqui ponemos a rodar el video (SIN AUDIO) y de forma automatica al poner el cursor sobre la imagen */
+        // autoplay hover
         document.addEventListener("mouseover", function(e){
             if(e.target.tagName === "VIDEO"){
                 e.target.play();
             }
         });
 
-        /* Esta pausa el video automatico despues de quitar el cursor del video, y tambien el onBlur */
         document.addEventListener("mouseout", function(e){
             if(e.target.tagName === "VIDEO"){
                 e.target.pause();
             }
         });
 
-        document.addEventListener("DOMContentLoaded", function(){
+        /* poner el cursor en el input al cargar la app */
+        /* document.addEventListener("DOMContentLoaded", function(){
             let input = document.getElementById('busqueda');
 
             input.focus(); // enfoque automático
-        });
+        }); */
 
-    </script>
+    });
+</script>
 
 @endsection
 
