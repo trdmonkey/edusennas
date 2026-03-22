@@ -268,11 +268,11 @@ font-weight:600;
 
 .search-badge{
     font-size:11px;
-    background:#eef3ff;
+    background:whitesmoke;
     color:#0d6efd;
-    padding:3px 8px;
-    border-radius:5px;
-    width:fit-content;
+    padding:3px 6px;
+    border-radius:2px 2px 8px 8px;
+    width:100%;
 }
 
 .search-category{
