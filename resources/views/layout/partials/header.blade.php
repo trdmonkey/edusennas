@@ -1,6 +1,6 @@
 <header class="app-header">
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm nav-anim">
 
 <div class="container-fluid">
 

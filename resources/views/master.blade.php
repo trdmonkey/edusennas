@@ -31,6 +31,8 @@
     @include('layout.partials.wysiwyg-svgs')
     @include('layout.partials.main-bottom-scripts')
     @yield('bottom-scripts')
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 </body>
 
 </html>

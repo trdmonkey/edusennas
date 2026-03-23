@@ -6,9 +6,8 @@
 @yield('body')
 @section('content')
 
-    <!-- HERO BUSQUEDA -->
-
-<section class="hero-busqueda">
+<!-- HERO BUSQUEDA -->
+<section class="hero-busqueda hero-anim">
 
     <video autoplay muted loop playsinline class="hero-video">
         <source src="{{ asset('images/logo_animado__2.mp4') }}" type="video/mp4">
@@ -33,7 +32,7 @@
 <section class="search-section">
     <div class="container">
 
-        <form class="search-box" onsubmit="return false;">
+        <form class="search-box search-anim" onsubmit="return false;">
 
             <input type="text"
                 id="busqueda"
@@ -64,7 +63,7 @@
 
                     <div class="col-12 col-sm-6 col-md-4 col-lg-3">
 
-                        <div class="card categoria-card h-100 shadow-sm">
+                        <div class="card categoria-card h-100 shadow-sm card-anim">
 
                             @if ($categoria->getFirstMediaUrl('imagen'))
                                 <img src="{{ $categoria->getFirstMediaUrl('imagen') }}"
@@ -125,6 +124,8 @@
 
 @section('bottom-scripts')
     @parent
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 
 <script>
     document.addEventListener("DOMContentLoaded", function(){
@@ -208,6 +209,44 @@
 
             input.focus(); // enfoque automático
         }); */
+
+
+
+
+        // 🔥 HERO (logo + fondo)
+        gsap.from(".hero-anim", {
+            opacity: 0,
+            scale: 1.05,
+            duration: 1.2,
+            ease: "power2.out"
+        });
+
+        // 🔍 BUSCADOR (entrada flotante)
+        gsap.from(".search-anim", {
+            y: 80,
+            opacity: 0,
+            duration: 1,
+            delay: 0.3,
+            ease: "power3.out"
+        });
+
+        // 🧱 CARDS (cascada)
+        gsap.from(".card-anim", {
+            y: 50,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.1,
+            delay: 0.6,
+            ease: "power2.out"
+        });
+
+        // 📌 NAVBAR
+        gsap.from(".nav-anim", {
+            y: -60,
+            opacity: 0,
+            duration: 0.8,
+            ease: "power2.out"
+        });
 
     });
 </script>
