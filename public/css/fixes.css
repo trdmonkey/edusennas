@@ -562,3 +562,22 @@ font-weight:600;
     /* font-weight: <weight>; */
     font-style: normal;
 }
+
+.categoria-slide {
+    transition: all 0.5s ease;
+    transform: scale(0.8);
+    opacity: 0.5;
+    filter: blur(2px);
+}
+
+.categoria-slide.active {
+    transform: scale(1.2);
+    opacity: 1;
+    filter: blur(0);
+    z-index: 2;
+}
+
+.card-pro:hover {
+    transform: scale(1.15) translateY(-10px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}

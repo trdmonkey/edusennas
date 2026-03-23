@@ -66,7 +66,7 @@
     <div class="slider-track" id="sliderTrack">
 
         @foreach ($categorias as $categoria)
-            <div class="slide">
+            <div class="slide categoria-slide">
 
                 <div class="card-pro">
 
@@ -81,7 +81,7 @@
 
         <!-- DUPLICADO PARA LOOP INFINITO -->
         @foreach ($categorias as $categoria)
-            <div class="slide">
+            <div class="slide categoria-slide">
 
                 <div class="card-pro">
 
@@ -237,7 +237,25 @@
 
         gsap.registerPlugin(ScrollTrigger);
 
-        
+        // vamos a agregar una clase "active" a la card que esté más cerca del centro de la pantalla, para darle un efecto de zoom o resalte
+        const slides = document.querySelectorAll(".categoria-slide");
+        function updateCenter() {
+            let center = window.innerWidth / 2;
+
+            slides.forEach(slide => {
+                let rect = slide.getBoundingClientRect();
+                let slideCenter = rect.left + rect.width / 2;
+
+                if (Math.abs(center - slideCenter) < 150) {
+                    slide.classList.add("active");
+                } else {
+                    slide.classList.remove("active");
+                }
+            });
+        }
+
+        // actualizar constantemente
+        gsap.ticker.add(updateCenter);        
 
 
     });
@@ -246,9 +264,7 @@
     document.addEventListener("DOMContentLoaded", () => {
 
         const track = document.getElementById("sliderTrack");
-
         const totalWidth = track.scrollWidth / 2;
-
         gsap.to(track, {
             x: -totalWidth,
             duration: 20,
