@@ -50,6 +50,17 @@
 
     </div>
 </section>
+
+<section class="categorias-highlight">
+
+    <h2 class="titulo-animado">
+        Aprende Lenguaje de Señas Fácilmente
+    </h2>
+
+</section>
+
+
+
 <div class="slider-container">
 
     <div class="slider-track" id="sliderTrack">
@@ -86,6 +97,8 @@
     </div>
 
 </div>
+
+
 @endsection
 
 @section('footer')
@@ -224,7 +237,7 @@
 
         gsap.registerPlugin(ScrollTrigger);
 
-
+        
 
 
     });
@@ -241,6 +254,13 @@
             duration: 20,
             ease: "none",
             repeat: -1
+        });
+
+        gsap.from(".titulo-animado", {
+            opacity: 0,
+            y: 80,
+            duration: 1.2,
+            ease: "power3.out"
         });
 
     });

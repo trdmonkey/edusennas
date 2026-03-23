@@ -8,7 +8,7 @@
     <a class="navbar-brand d-flex align-items-center" href="/">
         <img src="{{ asset('images/Logo__horizontal.png') }}"
              alt="logo"
-             style="height:40px;margin-right:10px;">
+             style="height:55px;margin-right:10px;width:auto;">
         <!-- <span class="fw-bold">Señas Que Unen</span> -->
     </a>
 

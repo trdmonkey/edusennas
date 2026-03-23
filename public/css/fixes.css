@@ -1,4 +1,5 @@
-
+/* GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
 
 /* =========================
    CATEGORIAS HOME
@@ -48,7 +49,7 @@
 
 /* NAVBAR */
 .navbar-brand img{
-    border-radius:8px;
+    border-radius:28px 2px 2px 28px;
 }
 
 .navbar{
@@ -474,26 +475,90 @@ font-weight:600;
     min-width: 250px;
 }
 
-.card-pro {
-    background: white;
-    border-radius: 20px;
-    overflow: hidden;
-    transition: 0.3s;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
 
-.card-pro:hover {
-    transform: scale(1.08);
+/* ========= ========= ======= ========== ======== ==== ======== ========== =============== =========== ============ =======
+=========== ============ =========== =========== ============ ============ =========== ============= =========== =========== */
+
+
+.card-pro {
+    position: relative;
+    width: 260px;
+    height: 320px;
+    border-radius: 18px;
+    overflow: hidden;
+    cursor: pointer;
+
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+    transition: all 0.4s ease;
 }
 
 .card-pro img {
+    position: absolute;
     width: 100%;
-    height: 160px;
+    height: 100%;
     object-fit: cover;
+    /* opacity: 0.25; */
+    transition: 0.4s;
 }
 
 .card-pro h3 {
-    padding: 15px;
-    font-size: 16px;
-    text-align: center;
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
+    color: white;
+    font-size: 18px;
+    z-index: 2;
+}
+
+.card-pro::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.8),
+        transparent
+    );
+}
+
+/* HOVER PRO */
+.card-pro:hover {
+    transform: scale(1.1) rotateZ(1deg);
+}
+
+.card-pro:hover img {
+    opacity: 0.5;
+    transform: scale(1.1);
+}
+
+
+.categorias-highlight {
+    height: 7vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #ffffff, #0f172a, #0f172a, #ffffff);
+}
+
+.titulo-animado {
+    font-size: 40px;
+    color: white;
+    letter-spacing: 5px;
+}
+
+.titulo-animado {
+    font-size: 37px;
+    color: #38bdf8;
+    text-shadow:
+        0 0 10px orangered,
+        0 0 20px #0ea5e9,
+        0 0 70px yellowgreen;
+    font-family: "Caveat", cursive;
+    font-optical-sizing: auto;
+    /* font-weight: <weight>; */
+    font-style: normal;
 }

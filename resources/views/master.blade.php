@@ -19,6 +19,11 @@
     <!-- Estilos para el index: header, hero, main y footer -->
     <link rel="stylesheet" href="/css/fixes.css">
 
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+
 </head>
 
 <body class="app header-fixed sidebar-fixed sidebar-lg-show">
