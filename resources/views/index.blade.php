@@ -127,6 +127,9 @@
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 
+<!-- CDN de ScrollTrigger para animar las cards de las categorias -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
 <script>
     document.addEventListener("DOMContentLoaded", function(){
 
@@ -211,9 +214,9 @@
         }); */
 
 
+        /* ANIMACIONES CON GSAP */
 
-
-        // 🔥 HERO (logo + fondo)
+        // HERO (logo + fondo)
         gsap.from(".hero-anim", {
             opacity: 0,
             scale: 1.05,
@@ -221,7 +224,7 @@
             ease: "power2.out"
         });
 
-        // 🔍 BUSCADOR (entrada flotante)
+        // BUSCADOR (entrada flotante)
         gsap.from(".search-anim", {
             y: 80,
             opacity: 0,
@@ -230,7 +233,7 @@
             ease: "power3.out"
         });
 
-        // 🧱 CARDS (cascada)
+        // CARDS (cascada)
         gsap.from(".card-anim", {
             y: 50,
             opacity: 0,
@@ -240,13 +243,15 @@
             ease: "power2.out"
         });
 
-        // 📌 NAVBAR
+        // NAVBAR
         gsap.from(".nav-anim", {
             y: -60,
             opacity: 0,
             duration: 0.8,
             ease: "power2.out"
         });
+
+        gsap.registerPlugin(ScrollTrigger);
 
     });
 </script>
