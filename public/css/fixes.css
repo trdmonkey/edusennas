@@ -455,3 +455,45 @@ font-weight:600;
 .search-box button:active {
     transform: scale(0.95);
 }
+
+
+
+
+.slider-container {
+    width: 100%;
+    overflow: hidden;
+    padding: 40px 0;
+}
+
+.slider-track {
+    display: flex;
+    gap: 20px;
+}
+
+.slide {
+    min-width: 250px;
+}
+
+.card-pro {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: 0.3s;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.card-pro:hover {
+    transform: scale(1.08);
+}
+
+.card-pro img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.card-pro h3 {
+    padding: 15px;
+    font-size: 16px;
+    text-align: center;
+}

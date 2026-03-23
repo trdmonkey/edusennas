@@ -50,72 +50,42 @@
 
     </div>
 </section>
+<div class="slider-container">
 
-    <div class="app-body">
+    <div class="slider-track" id="sliderTrack">
 
-        <main class="main">
-                
-            <div class="container categorias-container">
+        @foreach ($categorias as $categoria)
+            <div class="slide">
 
-                <div class="row g-4">
+                <div class="card-pro">
 
-                    @forelse ($categorias as $categoria)
+                    <img src="{{ $categoria->getFirstMediaUrl('imagen') ?: asset('images/Logo__vertical.png') }}">
 
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-
-                        <div class="card categoria-card h-100 shadow-sm card-anim">
-
-                            @if ($categoria->getFirstMediaUrl('imagen'))
-                                <img src="{{ $categoria->getFirstMediaUrl('imagen') }}"
-                                    class="card-img-top"
-                                    alt="{{ $categoria->nombre }}">
-                            @else
-                                <img src="{{ asset('images/Logo__vertical.png') }}"
-                                    class="card-img-top"
-                                    alt="Sin imagen">
-                            @endif
-
-                            <div class="card-body d-flex flex-column">
-
-                                <h5 class="card-title">
-                                    {{ $categoria->nombre }}
-                                </h5>
-
-                                <p class="card-text">
-                                    {{ Str::limit($categoria->descripcion, 90) }}
-                                </p>
-
-                                <div class="mt-auto">
-
-                                    <a href="#"
-                                    class="btn btn-primary w-100">
-                                    Ver señas
-                                    </a>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    @empty
-
-                    <div class="col-12">
-                        <div class="alert alert-info text-center">
-                            No hay categorías disponibles
-                        </div>
-                    </div>
-
-                    @endforelse
+                    <h3>{{ $categoria->nombre }}</h3>
 
                 </div>
 
             </div>
+        @endforeach
 
-        </main>
+        <!-- DUPLICADO PARA LOOP INFINITO -->
+        @foreach ($categorias as $categoria)
+            <div class="slide">
+
+                <div class="card-pro">
+
+                    <img src="{{ $categoria->getFirstMediaUrl('imagen') ?: asset('images/Logo__vertical.png') }}">
+
+                    <h3>{{ $categoria->nombre }}</h3>
+
+                </div>
+
+            </div>
+        @endforeach
+
     </div>
+
+</div>
 @endsection
 
 @section('footer')
@@ -129,6 +99,7 @@
 
 <!-- CDN de ScrollTrigger para animar las cards de las categorias -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
 <script>
     document.addEventListener("DOMContentLoaded", function(){
@@ -253,7 +224,29 @@
 
         gsap.registerPlugin(ScrollTrigger);
 
+
+
+
     });
+
+    // SLIDER INFINITO
+    document.addEventListener("DOMContentLoaded", () => {
+
+        const track = document.getElementById("sliderTrack");
+
+        const totalWidth = track.scrollWidth / 2;
+
+        gsap.to(track, {
+            x: -totalWidth,
+            duration: 20,
+            ease: "none",
+            repeat: -1
+        });
+
+    });
+    track.addEventListener("mouseenter", () => gsap.globalTimeline.pause());
+    track.addEventListener("mouseleave", () => gsap.globalTimeline.resume());
+
 </script>
 
 @endsection
