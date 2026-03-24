@@ -11,7 +11,7 @@
 </footer> -->
 
 <footer class="footer-pro">
-
+  <div id="tsparticles-footer"></div>
     <div class="footer-container">
 
         <!-- LOGO -->

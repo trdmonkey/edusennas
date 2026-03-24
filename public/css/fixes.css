@@ -732,3 +732,18 @@ font-weight:600;
     top: -100px;
     left: -100px;
 }
+
+#tsparticles-footer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.footer-container,
+.footer-bottom {
+    position: relative;
+    z-index: 1;
+}
