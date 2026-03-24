@@ -255,8 +255,32 @@
         }
 
         // actualizar constantemente
-        gsap.ticker.add(updateCenter);        
+        gsap.ticker.add(updateCenter); 
+        
+        
+        // para el footer
+        gsap.from(".footer-pro", {
+            scrollTrigger: {
+                trigger: ".footer-pro",
+                start: "top 90%"
+            },
+            opacity: 0,
+            y: 80,
+            duration: 1,
+            ease: "power3.out"
+        });
 
+        gsap.from(".footer-container > div", {
+            scrollTrigger: {
+                trigger: ".footer-pro",
+                start: "top 85%"
+            },
+            y: 50,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.2,
+            ease: "power3.out"
+        });
 
     });
 
