@@ -53,9 +53,7 @@
 
 <section class="categorias-highlight">
 
-    <h2 class="titulo-animado">
-        Aprende Lenguaje de Señas Fácilmente
-    </h2>
+    <h2 class="titulo-animado" id="type-text"></h2>
 
 </section>
 
@@ -363,6 +361,20 @@
             detectRetina: true
         });
 
+        /* animacion suave para la card del video cuando se hace click */
+        gsap.from(".sena-card", {
+            opacity: 0,
+            y: 40,
+            duration: 0.8,
+            ease: "power3.out"
+        });
+
+        gsap.from(".back-button", {
+            x: -30,
+            opacity: 0,
+            duration: 0.6
+        });
+
     });
 
     // SLIDER INFINITO
@@ -389,6 +401,25 @@
     track.addEventListener("mouseleave", () => gsap.globalTimeline.resume());
 
 </script>
+<script>
+    const texto = "Aprende Lenguaje de Señas Fácilmente";
+    const velocidad = 50;
 
+    let i = 0;
+    const elemento = document.getElementById("type-text");
+
+    function escribir() {
+        if (i < texto.length) {
+            elemento.innerHTML += texto.charAt(i);
+            i++;
+            setTimeout(escribir, velocidad);
+        } else {
+            // quitar cursor cuando termine
+            elemento.classList.add("fin-escritura");
+        }
+    }
+
+    window.addEventListener("load", escribir);
+</script>
 @endsection
 

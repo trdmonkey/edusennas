@@ -2,31 +2,53 @@
 
 @section('content')
 
-<div class="container py-5">
+<div class="sena-container">
 
-    <div class="row justify-content-center">
 
-        <div class="col-md-8 text-center">
+    <div class="sena-card">
+            <div class="back-button">
+        <a href="{{ url()->previous() }}">
+            <i class="fas fa-arrow-left"></i>
+            Volver
+        </a>
+    </div>
+        <h2 class="sena-title">
+            {{ $palabra->nombre }}
+        </h2>
 
-            <h2 class="mb-4">
-                {{ $palabra->nombre }}
-            </h2>
+        @if($palabra->getFirstMediaUrl('video'))
 
-            @if($palabra->getFirstMediaUrl('video'))
-
-            <video controls width="100%">
+        <div class="video-wrapper-pro">
+            <video controls>
                 <source src="{{ $palabra->getFirstMediaUrl('video') }}" type="video/mp4">
             </video>
+        </div>
 
-            @endif
+        @endif
 
-            <p class="mt-4">
-                {{ $palabra->descripcion }}
-            </p>
+        <div class="sena-actions">
 
-            <p class="text-muted">
-                Categoría: {{ $palabra->categoria->nombre ?? 'General' }}
-            </p>
+            <button><i class="fas fa-heart"></i></button>
+            <button><i class="fas fa-share-alt"></i></button>
+            <button><i class="fas fa-bookmark"></i></button>
+
+        </div>
+
+        <p class="sena-desc">
+            {{ $palabra->descripcion }}
+        </p>
+
+        <div class="sena-meta">
+
+            <span>
+                <i class="fas fa-folder"></i>
+                {{ $palabra->categoria->nombre ?? 'General' }}
+            </span>
+
+            <span>
+                <i class="fas fa-play-circle"></i>
+                Video educativo
+            </span>
 
         </div>
 
