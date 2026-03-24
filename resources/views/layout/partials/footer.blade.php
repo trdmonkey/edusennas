@@ -40,13 +40,11 @@
         <!-- SOCIAL -->
         <div class="footer-social">
             <h4>Síguenos</h4>
-            <div class="social-icons">
               <div class="social-icons">
                   <a href="#"><i class="fab fa-facebook-f"></i></a>
                   <a href="#"><i class="fab fa-whatsapp"></i></a>
                   <a href="#"><i class="fas fa-envelope"></i></a>
               </div>
-            </div>
         </div>
 
         <div class="footer-newsletter">

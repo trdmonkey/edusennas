@@ -286,35 +286,80 @@
             background: {
                 color: "transparent"
             },
+
             fpsLimit: 60,
+
+            interactivity: {
+                events: {
+                    onHover: {
+                        enable: true,
+                        mode: ["grab", "bubble"]
+                    },
+                    onClick: {
+                        enable: true,
+                        mode: "push"
+                    },
+                    resize: true
+                },
+
+                modes: {
+                    grab: {
+                        distance: 140,
+                        links: {
+                            opacity: 0.4
+                        }
+                    },
+
+                    bubble: {
+                        distance: 150,
+                        size: 6,
+                        duration: 0.3,
+                        opacity: 0.8
+                    },  
+
+                    push: {
+                        quantity: 3
+                    }
+                }
+            },
+
             particles: {
                 number: {
-                    value: 40
+                    value: 50
                 },
+
                 color: {
                     value: "#38bdf8"
                 },
+
                 links: {
                     enable: true,
                     color: "#38bdf8",
                     distance: 120,
-                    opacity: 0.2
+                    opacity: 0.2,
+                    width: 1
                 },
+
                 move: {
                     enable: true,
-                    speed: 1,
+                    speed: 1.2,
                     direction: "none",
+                    random: false,
+                    straight: false,
                     outModes: {
                         default: "bounce"
                     }
                 },
+
                 opacity: {
-                    value: 0.3
+                    value: 0.4
                 },
+
                 size: {
                     value: { min: 1, max: 3 }
                 }
             },
+
             detectRetina: true
         });
 
