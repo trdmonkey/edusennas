@@ -20,6 +20,8 @@ Route::get('/buscar-senas', [SearchController::class, 'buscar']);
 Route::get('/sena/{slug}', [MainController::class, 'sena']);
 Route::get('/{id}', [MainController::class, 'categoria']);
 
+Route::get('/palabra/{slug}', [PalabraController::class, 'show']);
+
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
     Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
@@ -85,6 +87,10 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
             Route::get('/', 'PalabraController@index')->name('index');
             Route::get('/create', 'PalabraController@create')->name('create');
             Route::post('/', 'PalabraController@store')->name('store');
+
+            /* ruta para mostrar el video seleccionado de la lista de señas dando click al icono del EYE */
+            Route::get('/{palabra}', 'PalabraController@show')->name('show');
+
             Route::get('/{palabra}/edit', 'PalabraController@edit')->name('edit');
             Route::post('/bulk-destroy', 'PalabraController@bulkDestroy')->name('bulk-destroy');
             Route::post('/{palabra}', 'PalabraController@update')->name('update');

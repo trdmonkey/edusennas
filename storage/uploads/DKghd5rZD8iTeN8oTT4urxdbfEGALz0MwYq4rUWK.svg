@@ -1,0 +1,83 @@
+<svg viewBox="0 0 460 90" xmlns="http://www.w3.org/2000/svg" class="h-22 w-auto" aria-label="InSign" role="img">
+    <title>InSign – Lenguaje de Señas</title>
+
+    <defs>
+        <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#00C2FF"/>
+            <stop offset="50%" stop-color="#00C2FF"/>
+            <stop offset="100%" stop-color="#7A00FF"/>
+        </linearGradient>
+    </defs>
+
+    <defs>
+        <linearGradient id="brandy" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#7A00FF"/>
+            <stop offset="80%" stop-color="#00C2FF"/>
+            <stop offset="100%" stop-color="#00C2FF"/>
+        </linearGradient>
+    </defs>
+
+    <g transform="translate(50,58)">
+        
+        <!-- I -->
+        <path d="M0 -36 V0"
+            stroke="#564E69"
+            stroke-width="6"
+            stroke-linecap="round"
+            class="dark:stroke-white"/>
+
+        <!-- N -->
+        <path d="M18 5 V-38
+                C48 -30, 44 -20, 46 -3 V0"
+            fill="none"
+            stroke="url(#brandy)"
+            stroke-width="7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="dark:stroke-white"/>
+
+        <!-- S -->
+        <path d="M118 -44 
+                C105 -32, 65 -35, 65 -22 
+                C65 -10, 105 -15, 105 -2 
+                C110 18, 35 52, 46 0"
+            fill="none"
+            stroke="url(#brand)"
+            stroke-width="7"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+
+        <!-- I -->
+        <g transform="translate(10,0)">
+            <path d="M122 0 V-20"
+                stroke="#564E69"
+                stroke-width="6"
+                stroke-linecap="round"
+                class="dark:stroke-white"/>
+            <circle cx="122" cy="-51" r="7" fill="url(#brand)"/>
+        </g>
+
+        <!-- G -->
+        <path d="M160 -10
+                C160 -30, 200 -30, 200 -10
+                C200 10, 160 10, 160 -10 Z
+                M200 -10 V28"
+            fill="none"
+            stroke="#C2BBC9"
+            stroke-width="6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="dark:stroke-white"/>
+
+        <!-- N -->
+        <path d="M225 0 V-18
+                C225 -30, 251 -30, 251 -18 V0"
+            fill="none"
+            stroke="#564E69"
+            stroke-width="6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="dark:stroke-white"/>
+
+    </g>
+</svg>

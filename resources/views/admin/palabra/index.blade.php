@@ -112,6 +112,15 @@
                                             <form @submit.prevent="deleteItem(item.resource_url)">
                                                 <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i></button>
                                             </form>
+                                            <div class="col-auto">
+                                                <a
+                                                    :href="item.resource_url"
+                                                    class="btn btn-sm btn-info"
+                                                    title="Ver palabra"
+                                                >
+                                                    <i class="fa fa-eye"></i>
+                                                </a>
+                                            </div>
                                         </div>
                                     </td>
 

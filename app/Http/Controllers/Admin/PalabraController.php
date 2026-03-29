@@ -94,7 +94,9 @@ class PalabraController extends Controller
 
     public function show(Palabra $palabra)
     {
-        $this->authorize('admin.palabra.show', $palabra);
+        return view('admin.palabra.show', [
+            'palabra' => $palabra
+        ]);
     }
 
     public function edit(Palabra $palabra)
