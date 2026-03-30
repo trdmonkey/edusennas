@@ -10,7 +10,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
 	{{-- TODO translatable suffix --}}
-    <title>lenguaje señas</title>
+    <link rel="icon" type="image/svg+xml" href="/images/play3.svg">
+    <title>Insign</title>
 
 	@include('layout.partials.main-styles')
 

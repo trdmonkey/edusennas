@@ -10,7 +10,12 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
 	{{-- TODO translatable suffix --}}
-    <title>@yield('title', 'Craftable') - {{ trans('brackets/admin-ui::admin.page_title_suffix') }}</title>
+    <title>@yield('title') • Insign Admin</title>
+    <!-- <title>
+        {{ ucfirst(request()->segment(2)) }} |
+        Insign Admin
+    </title> -->
+    <link rel="icon" type="image/svg+xml" href="/images/play2.svg">
 
 	@include('brackets/admin-ui::admin.partials.main-styles')
 
