@@ -105,7 +105,7 @@
                                     <td>
                                         <div class="row no-gutters">
                                             <div class="col-auto">
-                                                <a class="btn btn-sm btn-info" :href="item.resource_url + '/edit'">
+                                                <a class="btn btn-sm btn-warning" :href="item.resource_url + '/edit'">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
                                             </div>
@@ -115,7 +115,7 @@
                                             <div class="col-auto">
                                                 <a
                                                     :href="item.resource_url"
-                                                    class="btn btn-sm btn-info"
+                                                    class="btn btn-sm btn-success"
                                                     title="Ver palabra"
                                                 >
                                                     <i class="fa fa-eye"></i>

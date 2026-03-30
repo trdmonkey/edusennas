@@ -77,7 +77,10 @@
 
                                     <td>@{{ item.id }}</td>
                                         <td>@{{ item.nombre }}</td>
-                                        <td>@{{ item.estado }}</td>
+                                        <td>
+                                            <span v-if="item.estado == 1" class="badge badge-success">Activo</span>
+                                            <span v-else class="badge badge-danger">Inactivo</span>
+                                        </td>
                                         
                                         <td>
                                             <div class="row no-gutters">

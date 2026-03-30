@@ -14566,7 +14566,7 @@ canvas {
 }
 
 .app-footer {
-  display: flex;
+  display: none;
   flex-wrap: wrap;
   align-items: center;
   padding: 0 1rem;
