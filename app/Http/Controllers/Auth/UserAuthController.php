@@ -15,24 +15,15 @@ class UserAuthController extends Controller
             'password' => ['required'],
         ]);
 
-        // Intentamos loguear, pero verificando que el 'estado' sea 1 (Activo)
-        if (Auth::attempt(['email' => $credentials['email'], 'password' => $credentials['password'], 'estado' => 1])) {
+        // Intentamos el login. Si el correo y clave son correctos, ENTRA.
+        if (Auth::guard('admin')->attempt($credentials)) {
             $request->session()->regenerate();
-            
-            // Si es usuario normal, lo mandamos al home o a su perfil
-            return redirect()->intended('/');
+                   
+            return redirect()->intended('/admin');
         }
 
         return back()->withErrors([
-            'email' => 'Las credenciales no coinciden o tu cuenta está desactivada.',
+            'email' => 'Las credenciales no coinciden.',
         ])->withInput($request->only('email'));
-    }
-
-    public function logout(Request $request)
-    {
-        Auth::logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-        return redirect('/');
     }
 }

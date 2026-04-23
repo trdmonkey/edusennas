@@ -26,20 +26,22 @@ class PalabraController extends Controller
 
     public function index(IndexPalabra $request)
     {
-        /* $data = AdminListing::create(Palabra::class)->processRequestAndGet(
-            $request,
-            ['id', 'nombre', 'estado', 'categoria_id'],
-            ['id', 'nombre', 'slug', 'descripcion', 'link']
-        ); */
-
         $data = AdminListing::create(Palabra::class)
             ->modifyQuery(function($query) {
+                // Obtenemos el usuario logueado
+                $user = auth()->user();
+
                 $query->leftJoin('categoria as c', 'palabra.categoria_id', '=', 'c.id')
                     ->selectRaw("
                     palabra.*, 
                     c.nombre as categoria_nombre,
                     CASE WHEN palabra.estado = 1 THEN 'Activo' ELSE 'Inactivo' END as estado_texto
                 ");
+
+                // solo mostramos lo que le pertenece a ese user_id -- este trabajo es temporal porque el admin id 1 puede cambiar
+                if ($user->id !== 1) {
+                    $query->where('palabra.user_id', $user->id);
+                }
             })
             ->processRequestAndGet(
                 $request,
@@ -73,15 +75,16 @@ class PalabraController extends Controller
     {
         $sanitized = $request->getSanitized();
 
+        // Asignamos el ID del usuario que está creando el registro
+        $sanitized['user_id'] = auth()->user()->id;
+
         $palabra = Palabra::create($sanitized);
 
-        // LOG PARA SABER SI LARAVEL RECIBE ARCHIVOS
         \Log::info('FILES RECIBIDOS:', [
             'hasFile(video)' => $request->hasFile('video'),
             'allFiles' => $request->allFiles()
         ]);
 
-        // SI EL ARCHIVO LLEGA, SE GUARDA EN MEDIA
         if ($request->hasFile('video')) {
             $palabra->addMediaFromRequest('video')
                 ->toMediaCollection('video');

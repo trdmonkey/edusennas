@@ -51,4 +51,11 @@ class Palabra extends Model implements HasMedia
     {
         return url('/admin/palabras/' . $this->getKey());
     }
+
+    public function user()
+    {
+        // pa buscar el ID en la tabla 'users' por defecto
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
 }
