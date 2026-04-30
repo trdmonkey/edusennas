@@ -26,10 +26,6 @@ class Palabra extends Model implements HasMedia
         return $this->belongsTo(Categorium::class);
     }
 
-    /**
-        * Vamos a usar la libreria de spatie para manejar los videos asociados a cada palabra.
-        * Esta función registra una colección de medios llamada 'videos'.
-     **/
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('video')

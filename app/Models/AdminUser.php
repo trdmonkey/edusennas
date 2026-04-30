@@ -9,6 +9,9 @@ class AdminUser extends Authenticatable
 {
     use HasRoles;
 
+    // pal rol del admin al guardar
+    protected $guard_name = 'admin';
+
     protected $fillable = [
         'first_name',
         'last_name',

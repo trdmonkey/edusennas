@@ -1,0 +1,5 @@
+
+
+
+cadena para convertir los admin_users al modelo propio creado, para que funcione el form del register
+UPDATE model_has_roles SET model_type = 'App\\Models\\AdminUser' WHERE model_type = 'Brackets\\AdminAuth\\Models\\AdminUser';

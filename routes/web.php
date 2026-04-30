@@ -6,8 +6,15 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\Auth\UserAuthController;
 
 // Rutas de Autenticación para Usuarios Finales (InSigns)
-Route::post('/login/user', [UserAuthController::class, 'login'])->name('user.login');
+/* Route::post('/login/user', [UserAuthController::class, 'login'])->name('user.login');
 Route::post('/logout', [UserAuthController::class, 'logout'])->name('user.logout');
+Route::post('/admin/register', [UserAuthController::class, 'register'])->name('user.register'); */ // 
+
+Route::middleware(['web'])->group(function () {
+    Route::post('/login/user', [UserAuthController::class, 'login'])->name('user.login');
+    Route::post('/logout', [UserAuthController::class, 'logout'])->name('user.logout');
+    Route::post('/admin/register', [UserAuthController::class, 'register'])->name('user.register');
+});
 
 // Rutas para Google (Las voy a dejar definidas de una vez para el siguiente paso)
 Route::get('/login/google', [UserAuthController::class, 'redirectToGoogle'])->name('google.login');
