@@ -19,6 +19,7 @@ class Palabra extends Model implements HasMedia
         'estado',
         'link',
         'categoria_id',
+        'user_id',
     ];
 
     public function categoria()
@@ -51,7 +52,8 @@ class Palabra extends Model implements HasMedia
     public function user()
     {
         // pa buscar el ID en la tabla 'users' por defecto
-        return $this->belongsTo(User::class, 'user_id');
+        /* return $this->belongsTo(User::class, 'user_id'); */
+        return $this->belongsTo(AdminUser::class, 'user_id');
     }
 
 }
