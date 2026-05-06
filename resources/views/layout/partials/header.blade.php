@@ -75,7 +75,7 @@
 
 
         <!-- BUSCADOR -->
-        <form class="d-flex me-3" role="search">
+<!--         <form class="d-flex me-3" role="search">
 
             <input class="form-control me-2"
                    type="search"
@@ -86,17 +86,16 @@
                 Buscar
             </button>
 
-        </form>
+        </form> -->
 
 
         <!-- LOGIN -->
         <ul class="navbar-nav">
-
             <li class="nav-item">
-                <!-- provisional porque al final vamos a subir a un hosting -->
-                <a class="nav-link" href="http://127.0.0.1:8000/admin/login">Login</a>
+                <a href="{{ url('/admin/login') }}" class="btn btn-outline-light ms-2 px-4 fw-semibold">
+                    Sign In
+                </a>
             </li>
-
         </ul>
 
     </div>

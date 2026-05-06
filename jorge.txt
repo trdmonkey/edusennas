@@ -3,3 +3,68 @@
 
 cadena para convertir los admin_users al modelo propio creado, para que funcione el form del register
 UPDATE model_has_roles SET model_type = 'App\\Models\\AdminUser' WHERE model_type = 'Brackets\\AdminAuth\\Models\\AdminUser';
+
+
+
+Vale bro, vamos a hacer una cosita antes de continuar el desarrollo de este sistema que aun nos falta bastantes cosas, vamos a hacer una cosa diferente ahora... mira que espero que recuerdes mas o menos los cambios que hemos hecho en todo el desarrollo del login, tanto a nivel de codigo, como a nivel de base de datos y tambien a nivel de permisos, osea mas bien en todo aspecto... Por que te lo pregunto? porque vamos a subir estos cambios a una laptop w11 en la cual tengo el avance de lo que hay en la rama master, osea todo lo del desarrollo del login lo hicimos en esta rama desarrollo-login entonces se me ocurre que para no dañar lo que ya tengo aca, puedo bajar el proyecto que tengo en la rama desarrollo-login, y pues yo de la pc linux donde estuvimos desarrollando todo lo del login hice un backup de la base de datos y en una usb la pase a la pc windows, recuerdo que hay una cadena, que toca correr para modificar unos valores que es esta:
+
+
+
+UPDATE model_has_roles SET model_type = 'App\\Models\\AdminUser' WHERE model_type = 'Brackets\\AdminAuth\\Models\\AdminUser';
+
+
+
+Si hay mas cadenas, por favor me las das que yo no las recuerdo.
+
+
+
+Cual es la idea? El proyecto que viene con los cambios en la rama desarrollo-login a hoy es el que esta mas actualizado, entonces ese mismo debo ponerlo a correr en la pc windows. Por que? es una prueba ahora... porque realmente este sistema al final se debe entregar a un cliente y pues obviamente yo no le voy a entregar el computador con el sistema, lo que yo hare sera que hago el clone desde git hub en la pc donde me toque bajar el sistema, y luego importo la base de datos, luego pues los php artisan update y migrate y generate y lo mismo para el npm y listo bro, seria ya poner a correr el sistema.
+
+Te lo digo porque desde que empece el desarrollo de este sistema, lo he estado manejando asi, pues ya llevo varios computadores donde he estado desarrollando este sistema, entonces cada vez que me toca cambiar de pc, pues hago el mismo procedimiento que te mencioné.
+
+
+
+Entonces bueno, espero me hayas entendido y si tienes dudas preguntame con confianza.
+
+En esta pc tengo el proyecto hasta lo que hicimos antes de empezar con el login, entonces cual es mi idea, para no dañar lo que ya tengo funcionando bien... Es hacer un clone de lo que tengo en la rama desarrollo-login y luego importo la base de datos, luego todos los php artisan y npm y luego corro esa cadena que te mande y listo pongo a correr el sistema, espero y aspiro que funcione, sin embargo tengo mis dudas y no se si tu que ya manejas mas que yo este cuento me digas que me falta o me propongas una mejor alternativa y me ayudes a correr este sistema bien en esta laptop windows 11, si?
+
+
+
+Primero necesito saber en la pc linux, en cual repositorio de git hub estoy trabajando
+
+// ----------------------------------------------------------------
+// -------------------------------------------------------------------
+// ----------------------------------------------------------------------
+// -------------------------------------------------------------------------
+
+
+1. El repositorio en la pc Linux.
+git remote -v
+
+2. Base de datos 
+UPDATE model_has_roles SET model_type = 'App\\Models\\AdminUser' WHERE model_type = 'Brackets\\AdminAuth\\Models\\AdminUser';
+
+- Importar la columna user_id en la tabla palabra
+ALTER TABLE palabra ADD COLUMN user_id BIGINT UNSIGNED NULL AFTER id;
+
+3. Git hub
+git clone -b desarrollo-login [URL_DEL_REPO]
+
+4. Dependencias
+composer update
+composer install
+npm install
+php artisan storage:link
+php artisan migrate
+
+5. Limpiar rastro de Linux
+php artisan config:clear
+php artisan cache:clear
+php artisan view:clear
+php artisan route:clear
+php artisan optimize:clear
+
+6. correr
+.env
+php artisan serve --host=192.168.xxx.xxx
+npm run craftable-dev
