@@ -20,6 +20,7 @@ class AdminUser extends Authenticatable
         'activated',
         'forbidden',
         'language',
+        'google_id',
     ];
 }
 

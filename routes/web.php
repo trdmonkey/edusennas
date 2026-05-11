@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\Auth\UserAuthController;
+use App\Http\Controllers\Admin\GoogleController;
 
 // Rutas de Autenticación para Usuarios Finales (InSigns)
 /* Route::post('/login/user', [UserAuthController::class, 'login'])->name('user.login');
@@ -17,9 +18,9 @@ Route::middleware(['web'])->group(function () {
 });
 
 // Rutas para Google (Las voy a dejar definidas de una vez para el siguiente paso)
-Route::get('/login/google', [UserAuthController::class, 'redirectToGoogle'])->name('google.login');
+/* Route::get('/login/google', [UserAuthController::class, 'redirectToGoogle'])->name('google.login');
 Route::get('/login/google/callback', [UserAuthController::class, 'handleGoogleCallback']);
-
+ */
 
 /*
 |--------------------------------------------------------------------------
@@ -116,4 +117,6 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
     });
 });
 
-
+// Rutas para Login con Google
+Route::get('admin/login/google', [GoogleController::class, 'redirectToGoogle']);
+Route::get('admin/login/google/callback', [GoogleController::class, 'handleGoogleCallback']);

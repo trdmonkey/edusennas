@@ -74,7 +74,7 @@
 
                         <div class="text-center mt-5">
                             <p class="text-muted small mb-3">O continúa con tu cuenta de</p>
-                            <a href="#" class="btn btn-outline-light border btn-block d-flex align-items-center justify-content-center shadow-sm" style="border-radius: 15px; padding: 12px; color: #555;">
+                            <a href="{{ url('admin/login/google') }}" class="btn btn-outline-light border btn-block d-flex align-items-center justify-content-center shadow-sm" style="border-radius: 15px; padding: 12px; color: #555;">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 48 48" style="margin-right: 12px;">
                                     <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"/>
                                     <path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"/>
