@@ -36,6 +36,7 @@ class GoogleController extends Controller
                     'first_name' => $firstName,
                     'last_name'  => $lastName,
                     'google_id'  => $googleUser->getId(), // ¡IMPORTANTE!
+                    'avatar_url' => $googleUser->getAvatar(),
                     'password'   => $user->password ?? bcrypt(str_random(16)),
                     'activated'  => 1,
                     'forbidden'  => 0,

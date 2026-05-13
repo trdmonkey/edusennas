@@ -17,10 +17,11 @@ class AdminUser extends Authenticatable
         'last_name',
         'email',
         'password',
+        'google_id', 
+        'avatar_url', 
         'activated',
         'forbidden',
         'language',
-        'google_id',
     ];
 }
 
