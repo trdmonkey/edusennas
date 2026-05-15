@@ -5,6 +5,7 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\Auth\UserAuthController;
 use App\Http\Controllers\Admin\GoogleController;
+use App\Http\Controllers\Admin\DashboardController;
 
 // Rutas de Autenticación para Usuarios Finales (InSigns)
 /* Route::post('/login/user', [UserAuthController::class, 'login'])->name('user.login');
@@ -43,6 +44,7 @@ Route::get('/palabra/{slug}', [PalabraController::class, 'show']);
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
     Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin.')->group(static function() {
+        Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
         Route::prefix('admin-users')->name('admin-users/')->group(static function() {
             Route::get('/',                                             'AdminUsersController@index')->name('index');
             Route::get('/create',                                       'AdminUsersController@create')->name('create');
@@ -120,3 +122,4 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 // Rutas para Login con Google
 Route::get('admin/login/google', [GoogleController::class, 'redirectToGoogle']);
 Route::get('admin/login/google/callback', [GoogleController::class, 'handleGoogleCallback']);
+
