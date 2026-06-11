@@ -1,8 +1,6 @@
 @extends('brackets/admin-ui::admin.layout.default')
 @section('title', 'Dashboard - InSign')
 
-@section('title', 'Dashboard')
-
 @section('body')
     <div class="container-xl">
         <div class="main-content">
@@ -149,7 +147,7 @@
 @section('bottom-scripts')
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        // Usamos un pequeño timeout para asegurar que el DOM y el canvas existan
+        // aqui ussamos un pequeño timeout para asegurar que el DOM y el canvas existan
         setTimeout(function() {
             const ctx = document.getElementById('categoryChart');
             if (ctx) {
@@ -172,4 +170,6 @@
             }
         }, 500);
     </script>
+
+
 @endsection
